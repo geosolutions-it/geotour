@@ -28,5 +28,20 @@ module.exports = require('./MapStore2/build/buildConfig')({
         "@mapstore/patcher": path.resolve(__dirname, "node_modules", "@mapstore", "patcher"),
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
         "@js": path.resolve(__dirname, "js")
+    },
+    proxy: {
+        '/rest': {
+            target: "http://localhost:8080/mapstore"
+        },
+        '/pdf': {
+            target: "http://localhost:8080/mapstore"
+        },
+        '/mapstore/pdf': {
+            target: "http://localhost:8080"
+        },
+        '/proxy': {
+            target: "http://localhost:8080/mapstore"
+        }
     }
+
 });

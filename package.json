@@ -1,5 +1,5 @@
 {
-    "name": "GeoTour",
+    "name": "geotour",
     "version": "1.0.0",
     "description": "project for creating a geotour plugin for the dev training",
     "main": "index.js",
@@ -124,7 +124,9 @@
         "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
         "lint": "eslint js --ext .jsx,.js",
         "travis": "eslint js --ext .jsx,.js && karma start ./karma.conf.single-run.js --browsers FirefoxHeadless --reporters dots,junit,coverage,coveralls",
-        "updateDevDeps": "node updateDevDependencies.js"
+        "updateDevDeps": "node updateDevDependencies.js",
+        "build-backend": "mvn clean install",
+        "backend": "npm run build-backend && mvn cargo:run -f ./web/pom.xml"
     },
     "author": "GeoSolutions",
     "license": "BSD-2-Clause"
