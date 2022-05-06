@@ -20,11 +20,22 @@
 
 // eg: fill all the available space in the parent container with my plugin
 #page-tour {
-    #geo-tour {
-        position: absolute;
-    }
     #map {
         bottom: 0;
+    }
+}
+
+#geo-tour-plugin {
+
+    .geotour-table-results {
+        td {
+            padding: 10px;
+        }
+
+        .table-geom-type {
+            display: flex;
+            width: 130px;
+        }
     }
 }
 
