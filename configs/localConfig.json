@@ -310,7 +310,12 @@
               }
             }
           },
-          "GeoTour"
+          {
+            "name": "GeoTour",
+            "cfg": {
+              "showCloseButton": false
+            }
+          }
         ],
         "desktop": ["Details",
           {
@@ -376,7 +381,13 @@
                     }
                 }
             }, "Home", "FeatureEditor",
-            "LayerDownload", "GeoTour",
+            "LayerDownload",
+            {
+              "name": "GeoTour",
+              "cfg": {
+                "showCloseButton": true
+              }
+            },
             {
               "name": "QueryPanel",
               "cfg": {

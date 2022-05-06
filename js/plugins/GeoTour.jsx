@@ -29,11 +29,12 @@ const PanelContainer = ({
     id = "geo-tour",
     dockStyle = {},
     panelClassName = "",
-    enabled = false,
+    enabled = true,
+    showCloseButton = false,
     onClose = () => {}
 }) => {
     // eslint-disable-next-line no-console
-    return (<DockablePanel
+    return enabled ? (<DockablePanel
         open={enabled}
         dock
         draggable={false}
@@ -41,7 +42,7 @@ const PanelContainer = ({
         position="right"
         bsStyle="primary"
         title={<Message msgId="geotour.name"/> /* edit me with custom translations */}
-        onClose={onClose}
+        onClose={showCloseButton ? onClose : null}
         glyph="globe"
         style={dockStyle}
     >
@@ -50,7 +51,7 @@ const PanelContainer = ({
                 This will be an awesome plugin
             </BorderLayout>
         </Panel>
-    </DockablePanel>);
+    </DockablePanel>) : null;
 };
 
 const ConnectedPlugin = connect(createSelector([
