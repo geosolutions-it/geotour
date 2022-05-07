@@ -110,12 +110,11 @@ const PanelContainer = ({
                         justifyContent: "center"
                     }}>
                         <span style={{
-                            width: "100px",
-                            height: "100px",
-                            textAlign: "center"
+                            textAlign: "center",
+                            cursor: "pointer"
                         }}>
-                            <Glyphicon glyph="upload" />
-                            {dropMessage}
+                            <Glyphicon glyph="upload"/>
+                            {`  ${dropMessage}`}
                         </span>
                     </div>
                 </Dropzone>
@@ -123,18 +122,10 @@ const PanelContainer = ({
                     <div>
                         <table className="geotour-table-results">
                             <tr>
-                                <td>
-                                action
-                                </td>
-                                <td>
-                                #
-                                </td>
-                                <td className="table-geom-type">
-                                geometry type
-                                </td>
-                                <td>
-                                coordinates
-                                </td>
+                                <td> action </td>
+                                <td> # </td>
+                                <td className="table-geom-type"> geometry type </td>
+                                <td> coordinates </td>
                             </tr>
                             { file.features.map((ft, index) => {
                                 return (<tr>
@@ -149,20 +140,20 @@ const PanelContainer = ({
                                 </tr>);
                             }) }
                         </table>
-                        {
-                            reverseGeocodeData ? (
-                                <>
-                                    <p>ReverseGeocodeData address</p>
-                                    <li> state {reverseGeocodeData?.address?.state || "" }</li>
-                                    <li> country {reverseGeocodeData?.address?.country || "" }</li>
-                                    <li> city {reverseGeocodeData?.address?.city || "" }</li>
-                                </>
-                            ) : null }
                     </div>
                     <p>Click next button in order to {flyToEnabled ? "disable" : "enable"} fly to</p>
                     <Button onClick={() => {
                         setFlyToEnabled(!flyToEnabled);
                     }}>fly to</Button>
+                    {
+                        reverseGeocodeData ? (
+                            <>
+                                <p>ReverseGeocodeData address</p>
+                                <li> state {reverseGeocodeData?.address?.state || "N.A." }</li>
+                                <li> country {reverseGeocodeData?.address?.country || "N.A." }</li>
+                                <li> city {reverseGeocodeData?.address?.city || "N.A." }</li>
+                            </>
+                        ) : null }
                 </>
                     : null }
             </BorderLayout>
