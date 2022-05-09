@@ -1,7 +1,17 @@
+import expect from "expect";
+import { uploadFile, GEOTOUR_UPLOAD_FILE } from "@js/actions/geotour";
 
-export const GEOTOUR_UPLOAD_FILE = "GEOTOUR:GEOTOUR_UPLOAD_FILE";
+describe("geotour actions tests", () => {
 
-export const uploadFile = (file) => ({
-    type: GEOTOUR_UPLOAD_FILE,
-    file
+
+    it("uploadFile test", () => {
+        const file = {};
+        expect(uploadFile(
+            file
+        )).toEqual({
+            type: GEOTOUR_UPLOAD_FILE,
+            file
+        });
+
+    });
 });
