@@ -11,7 +11,11 @@
             "babelOptions": {
                 "configFile": "./MapStore2/build/babel.config.js"
             }
-        }
+        },
+        "rules":
+          {
+            "quotes": [ "error","double" ]
+          }
     },
     "eslintIgnore": [
         "web/client/dist/",

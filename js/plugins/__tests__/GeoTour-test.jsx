@@ -6,8 +6,6 @@ import ReactDOM from 'react-dom';
 import GeoTourPlugin from '@js/plugins/GeoTour';
 import { getPluginForTest } from '@mapstore/plugins/__tests__/pluginsTestUtils';
 
-// import geotour from '@js/reducers/geotour';
-
 describe('Geostories Plugin', () => {
 
     beforeEach((done) => {

@@ -25,7 +25,7 @@ import * as geotourEpics from '@js/epics/geotour';
  * The GeoTour plugin allows you to
  * @memberof plugins
  * @prop {object} cfg properties that can be configured for this plugin
- * TODO @prop {object} [cfg.XXX=false] if true, default is false
+ * @prop {object} [cfg.showCloseButton=false] if true, it shows the close button, default is false
   */
 
 /**
@@ -51,12 +51,8 @@ const PanelContainer = ({
     const [flyToEnabled, setFlyToEnabled] = useState(false);
     const uploadFiles = (files) => {
         if (!files) return;
-        // onUpload(files);
         const fileToParse = files[0];
         readJson(fileToParse).then(f => {
-
-            // eslint-disable-next-line no-console
-            console.log("file:", f);
             onUpload({...f});
             addMarkers(
                 "geotour-layer",
@@ -80,7 +76,6 @@ const PanelContainer = ({
         });
     };
 
-    // eslint-disable-next-line no-console
     return enabled ? (<DockablePanel
         open={enabled}
         dock
@@ -178,6 +173,9 @@ const ConnectedPlugin = connect(createSelector([
 
 // export the plugin using the createPlugin utils which is the recommended way
 export default createPlugin("GeoTour", {
+    options: {
+        disablePluginIf: "{state('mapType') === 'leaflet' || state('mapType') === 'cesium'}"
+    },
     component: ConnectedPlugin,
     containers: {
         BurgerMenu: {

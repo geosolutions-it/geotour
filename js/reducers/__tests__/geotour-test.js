@@ -1,16 +1,35 @@
 import expect from 'expect';
-import { uploadFile, GEOTOUR_UPLOAD_FILE } from '@js/actions/geotour';
+import { uploadFile } from '@js/actions/geotour';
+import geotour from '@js/reducers/geotour';
 
 
 describe("geotour actions tests", () => {
 
 
     it("uploadFile test", () => {
-        const file = {};
-        expect(uploadFile(
+        const file = {
+            type: "FeatureCollection"
+        };
+        const initialState = {};
+        let state = geotour(initialState, uploadFile(file));
+        expect(state).toBeTruthy();
+
+        expect(state).toEqual({
             file
-        )).toEqual({
-            type: GEOTOUR_UPLOAD_FILE,
+        });
+
+    });
+
+    it.skip("TODO SHOW_REVERSE_GEOCODE test", () => {
+        // complete this test autonomously
+        const file = {
+            type: "FeatureCollection"
+        };
+        const initialState = {};
+        let state = geotour(initialState, uploadFile(file));
+        expect(state).toBeTruthy();
+
+        expect(state).toEqual({
             file
         });
 

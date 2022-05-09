@@ -1,5 +1,7 @@
-import { GEOTOUR_UPLOAD_FILE } from '@js/actions/geotour';
+// js/reducers/geotour.js
 import { SHOW_REVERSE_GEOCODE } from '@mapstore/actions/mapInfo';
+
+import { GEOTOUR_UPLOAD_FILE } from '@js/actions/geotour';
 
 
 export const geotour = (state = {}, action) => {

@@ -1,6 +1,6 @@
 import expect from 'expect';
 
-import { geotourFileSelector, geotourEnabledSelector } from '../geotour';
+import { geotourFileSelector, geotourEnabledSelector } from '@js/selectors/geotour';
 
 describe("geotour selectors tests", () => {
 
